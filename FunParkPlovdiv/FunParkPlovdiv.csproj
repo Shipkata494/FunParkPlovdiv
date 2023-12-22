@@ -14,8 +14,4 @@
     <ProjectReference Include="..\FunParkPlovdov.Common\FunParkPlovdiv.Common.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\Content\Images\" />
-  </ItemGroup>
-
 </Project>
