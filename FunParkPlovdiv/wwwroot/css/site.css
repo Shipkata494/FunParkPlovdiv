@@ -59,3 +59,8 @@ body {
     border-color: #990000;
     color: #fff;
 }
+.img-custom-size {
+    width: 400px;
+    height: auto;
+}
+
