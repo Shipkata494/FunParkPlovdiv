@@ -1,7 +1,9 @@
 using FunParkPlovdiv.Models;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Security.Cryptography;
 
 namespace FunParkPlovdiv.Controllers
 {
@@ -16,6 +18,7 @@ namespace FunParkPlovdiv.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
@@ -29,5 +32,6 @@ namespace FunParkPlovdiv.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+   
     }
 }
