@@ -38,7 +38,7 @@ body {
 }
 .content {
     position: relative;
-    z-index: 0; /* Ensure the content is below the navbar */
+    z-index: 0; 
     padding: 20px;
 }
 .navbar-nav {
@@ -49,13 +49,13 @@ body {
 
 
 .img-home {
-    max-width: 100%; /* Ensure the image doesn't exceed its container */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove any default inline styling */
-    margin: 0 auto; /* Center the image horizontally */
+    max-width: 100%;
+    height: auto; 
+    display: block; 
+    margin: 0 auto; 
 }
 .btn-danger {
-    background-color: #990000; /* Use your desired darker red color */
-    border-color: #990000; /* Apply the same color to the border for consistency */
-    color: #fff; /* Set text color to be visible on the darker background */
+    background-color: #990000;
+    border-color: #990000;
+    color: #fff;
 }

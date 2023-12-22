@@ -1,8 +1,11 @@
+using FunParkPlovdiv.Services;
+using FunParkPlovdiv.Services.Interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddScoped<IImageService,ImageService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
