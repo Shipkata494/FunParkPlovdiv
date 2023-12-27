@@ -10,6 +10,7 @@
         }
         [Key]
         public Guid Id { get; set; }
+        public string Description { get; set; }
         [Required]
         [MaxLength(PriceTitleMaxLenght)]
         public string Title { get; set; } = null!;
