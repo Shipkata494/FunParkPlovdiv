@@ -7,10 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
     <PackageReference Include="popper.js" Version="1.16.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FunParkPlovdiv.Data\FunParkPlovdiv.Data.csproj" />
     <ProjectReference Include="..\FunParkPlovdiv.Services\FunParkPlovdiv.Services.csproj" />
     <ProjectReference Include="..\FunParkPlovdiv.ViewModels\FunParkPlovdiv.ViewModels.csproj" />
     <ProjectReference Include="..\FunParkPlovdov.Common\FunParkPlovdiv.Common.csproj" />
