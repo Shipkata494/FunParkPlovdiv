@@ -1,11 +1,13 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using FunParkPlovdiv.Services.Interfaces;
-
-namespace FunParkPlovdiv.Controllers
+﻿namespace FunParkPlovdiv.Controllers
 {
+    using System.Security.Claims;
+
+    using Microsoft.AspNetCore.Authentication.Cookies;
+    using Microsoft.AspNetCore.Authentication;
+    using Microsoft.AspNetCore.Mvc;
+
+    using FunParkPlovdiv.Services.Interfaces;
+
     public class AdminController : Controller
     {
         private readonly IAdminService adminService;

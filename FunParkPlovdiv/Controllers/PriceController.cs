@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace FunParkPlovdiv.Controllers
+﻿namespace FunParkPlovdiv.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
     public class PriceController : Controller
     {
         public IActionResult Index()

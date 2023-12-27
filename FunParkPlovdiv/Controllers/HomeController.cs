@@ -1,12 +1,10 @@
-using FunParkPlovdiv.Models;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
-using Microsoft.AspNetCore.Hosting.Server;
-using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
-using System.Security.Cryptography;
-
 namespace FunParkPlovdiv.Controllers
 {
+    using System.Diagnostics;
+
+    using Microsoft.AspNetCore.Mvc;
+
+    using FunParkPlovdiv.Models;
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

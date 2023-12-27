@@ -1,8 +1,8 @@
-﻿using FunParkPlovdiv.Services.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-
-namespace FunParkPlovdiv.Controllers
+﻿namespace FunParkPlovdiv.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+
+    using FunParkPlovdiv.Services.Interfaces;
     public class ImageController : Controller
     {
        private readonly IImageService imageService;
