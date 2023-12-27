@@ -1,5 +1,5 @@
 ﻿@inject IPriceService priceService 
-
+@using static FunParkPlovdiv.Common.GeneralApplicationConstants.Admin
 @{
     var smallCourseData = priceService.GetDataOfSmallCourseAsync().Result;
     var bigCourseData = priceService.GetDataOfBigCourseAsync().Result;
@@ -8,7 +8,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <img src="~/Images/ceni.png" class="img-custom-size" />
-
+<div id="dynamicFormContainer"></div>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
@@ -28,12 +28,22 @@
             <th class="font-weight-bold text-danger" scope="col">Цена</th>
         </tr>
         <tr>
-            <th class="font-weight-bold text-danger" scope="row">@smallCourseData.Title</th>
-            <td class="font-weight-bold text-danger">@smallCourseData.Value лв</td>
+            <th class="font-weight-bold text-danger" id="SmallCourseTitle" scope="row">@smallCourseData.Title</th>
+            <td class="font-weight-bold text-danger" id="SmallCourseValue">@smallCourseData.Value лв @if (User.IsInRole(AdminRoleName))
+                {
+                    <button id="small-course" class="btn btn-warning btn-sm">Edit</button>
+                }
+            </td>
+           
         </tr>
         <tr>
-            <th  class="font-weight-bold text-danger" scope="row">@bigCourseData.Title</th>
-            <td  class="font-weight-bold text-danger">@bigCourseData.Value лв</td>
+            <th class="font-weight-bold text-danger" id="BigCourseTitle" scope="row">@bigCourseData.Title</th>
+            <td  class="font-weight-bold text-danger" id="BigCourseValue" >@bigCourseData.Value лв
+                @if (User.IsInRole(AdminRoleName))
+                {
+                    <button id="big-course" class="btn btn-warning btn-sm">Edit</button>
+                }
+            </td>
         </tr>
     </tbody>
 </table>

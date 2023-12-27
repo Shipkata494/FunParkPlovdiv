@@ -16,6 +16,23 @@
            dbContext = _dbContext;
         }
 
+        public async Task EditBigCourseAsync(PriceViewModel priceViewModel)
+        {
+            var prices = await dbContext.Prices.Where(p => p.Description == "BigCourse").FirstAsync();
+            prices.Value = priceViewModel.Value;
+            prices.Title = priceViewModel.Title;
+            await dbContext.SaveChangesAsync();
+        }
+
+
+        public async Task EditSmallCourseAsync(PriceViewModel priceViewModel)
+        {
+            var prices = await dbContext.Prices.Where(p => p.Description == "MiniCourse").FirstAsync();
+            prices.Value = priceViewModel.Value;
+            prices.Title = priceViewModel.Title;
+            await dbContext.SaveChangesAsync();
+        }
+
         public async Task<PriceViewModel> GetDataOfBigCourseAsync()
         {
             var prices = await dbContext.Prices.Where(p=>p.Description== "BigCourse").FirstAsync();

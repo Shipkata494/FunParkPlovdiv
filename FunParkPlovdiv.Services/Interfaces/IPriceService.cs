@@ -11,5 +11,7 @@ namespace FunParkPlovdiv.Services.Interfaces
     {
         Task<PriceViewModel> GetDataOfSmallCourseAsync();
         Task<PriceViewModel> GetDataOfBigCourseAsync();
+        Task EditSmallCourseAsync(PriceViewModel priceViewModel);
+        Task EditBigCourseAsync(PriceViewModel priceViewModel);
     }
 }
