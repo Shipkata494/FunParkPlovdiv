@@ -1,4 +1,8 @@
-﻿using FunParkPlovdiv.Services.Interfaces;
+﻿using FunParkPlovdiv.Common;
+using FunParkPlovdiv.Data;
+using FunParkPlovdiv.Services.Interfaces;
+using FunParkPlovdiv.Services.ServiceModels;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +13,17 @@ namespace FunParkPlovdiv.Services
 {
     public class AdminService : IAdminService
     {
-        public async Task<bool> AuthenticateUser(string username, string password)
+        private readonly FunParkPlovdivDbContext dbContext;
+
+        public AdminService(FunParkPlovdivDbContext _dbContext)
         {
-            if (username == "1" && password == "2")
-            {
-                return true;
-            }
-            return false;
+            dbContext = _dbContext;
+        }
+
+        public async Task<bool> AuthenticateUser(AdminServiceModel model)
+        {
+            var administrator = await dbContext.Administrator.Where(a=>a.Username == model.Username).FirstAsync();
+           return PasswordHash.ValidatePassword(model.Password, administrator.PasswordHash);
         }
     }
 }

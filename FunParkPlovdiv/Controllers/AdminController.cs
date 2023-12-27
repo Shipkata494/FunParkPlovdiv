@@ -7,6 +7,7 @@
     using Microsoft.AspNetCore.Mvc;
 
     using FunParkPlovdiv.Services.Interfaces;
+    using FunParkPlovdiv.Services.ServiceModels;
 
     public class AdminController : Controller
     {
@@ -21,17 +22,13 @@
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Index(string username, string password)
+        public async Task<IActionResult> Index(AdminServiceModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = new
-                {
-                    username,
-                    password
-                };
+               
 
-                var IsUserAuthenticate = await adminService.AuthenticateUser(user.username, user.password);
+                var IsUserAuthenticate = await adminService.AuthenticateUser(model);
 
                 if (!IsUserAuthenticate)
                 {
@@ -41,8 +38,8 @@
 
                 var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.NameIdentifier, username),
-                        new Claim("Password", password),
+                        new Claim(ClaimTypes.NameIdentifier, model.Username),
+                        new Claim("Password", model.Password),
                         new Claim(ClaimTypes.Role, "Administrator"),
                     };
 

@@ -63,4 +63,10 @@ body {
     width: 400px;
     height: auto;
 }
+.opClass {
+    opacity: 0.4;
+}
+.opClass1 {
+    opacity: 1;
+}
 

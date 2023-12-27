@@ -1,7 +1,20 @@
 ﻿@model List<ImageModel>
+@using static FunParkPlovdiv.Common.GeneralApplicationConstants.Admin;
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+@if (User.IsInRole(AdminRoleName))
+{
+    <div class="form-group">
+    <form enctype="multipart/form-data" method="post" id="uploadForm">
+        <div class="form-group">
+            <label for="imageFile"></label>
+            <input type="file" name="imageFile" id="imageFile" accept="image/*" />
+        </div>
+        <button type="button" onclick="uploadImage()">Upload Image</button>
+    </form>
+    </div>
+}
  @if (Model.Count > 0)
     {
 <div id="myCarousel" class="carousel slide" data-ride="carousel" height="300px" width="300">

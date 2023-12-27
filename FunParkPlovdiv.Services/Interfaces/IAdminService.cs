@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FunParkPlovdiv.Services.ServiceModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace FunParkPlovdiv.Services.Interfaces
 {
     public interface IAdminService
     {
-        Task<bool> AuthenticateUser(string username,string password);
+        Task<bool> AuthenticateUser(AdminServiceModel model);
     }
 }
