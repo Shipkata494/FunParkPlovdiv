@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FunParkPlovdiv.Data\FunParkPlovdiv.Data.csproj" />
+    <ProjectReference Include="..\FunParkPlovdiv.ViewModels\FunParkPlovdiv.ViewModels.csproj" />
     <ProjectReference Include="..\FunParkPlovdov.Common\FunParkPlovdiv.Common.csproj" />
   </ItemGroup>
 

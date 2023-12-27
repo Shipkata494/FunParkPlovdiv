@@ -1,7 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@inject IPriceService priceService 
+
 @{
+    var smallCourseData = priceService.GetDataOfSmallCourseAsync().Result;
+    var bigCourseData = priceService.GetDataOfBigCourseAsync().Result;
 }
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -27,12 +28,12 @@
             <th class="font-weight-bold text-danger" scope="col">Цена</th>
         </tr>
         <tr>
-            <th class="font-weight-bold text-danger" scope="row">10 мин</th>
-            <td class="font-weight-bold text-danger">25 лв</td>
+            <th class="font-weight-bold text-danger" scope="row">@smallCourseData.Title</th>
+            <td class="font-weight-bold text-danger">@smallCourseData.Value лв</td>
         </tr>
         <tr>
-            <th  class="font-weight-bold text-danger" scope="row">15 мин</th>
-            <td  class="font-weight-bold text-danger">30 лв</td>
+            <th  class="font-weight-bold text-danger" scope="row">@bigCourseData.Title</th>
+            <td  class="font-weight-bold text-danger">@bigCourseData.Value лв</td>
         </tr>
     </tbody>
 </table>
