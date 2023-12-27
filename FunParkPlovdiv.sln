@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunParkPlovdiv", "FunParkPl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunParkPlovdiv.Common", "FunParkPlovdov.Common\FunParkPlovdiv.Common.csproj", "{8A4EA9D6-55B2-4310-9EB2-1901F168C146}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunParkPlovdiv.Services", "FunParkPlovdiv.Services\FunParkPlovdiv.Services.csproj", "{73980697-B54D-4CE2-834C-C0A828ABA7F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunParkPlovdiv.Services", "FunParkPlovdiv.Services\FunParkPlovdiv.Services.csproj", "{73980697-B54D-4CE2-834C-C0A828ABA7F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunParkPlovdiv.ViewModels", "FunParkPlovdiv.ViewModels\FunParkPlovdiv.ViewModels.csproj", "{9D7DF777-6111-4C58-B412-826DBE2D47EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunParkPlovdiv.ViewModels", "FunParkPlovdiv.ViewModels\FunParkPlovdiv.ViewModels.csproj", "{9D7DF777-6111-4C58-B412-826DBE2D47EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunParkPlovdiv.Data", "FunParkPlovdiv.Data\FunParkPlovdiv.Data.csproj", "{A4D559E4-E721-4202-8258-BA37DE6A133A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9D7DF777-6111-4C58-B412-826DBE2D47EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D7DF777-6111-4C58-B412-826DBE2D47EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D7DF777-6111-4C58-B412-826DBE2D47EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4D559E4-E721-4202-8258-BA37DE6A133A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4D559E4-E721-4202-8258-BA37DE6A133A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4D559E4-E721-4202-8258-BA37DE6A133A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4D559E4-E721-4202-8258-BA37DE6A133A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
