@@ -89,14 +89,14 @@
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> UserDrive(string email, DriveViewModel model)
+        public async Task<IActionResult> UserDrive(DriveViewModel model)
         {
             if (ModelState.IsValid) 
             {
-                if (await adminService.UserExist(email))
+                if (await adminService.UserExist(model.Email))
                 {
-                    await adminService.UserDriveAsync(email,model);
-                    return RedirectToAction("Index", "Home");
+                    await adminService.UserDriveAsync(model);
+                    return RedirectToAction("Info", model);
                 }
                 else
                 {
@@ -106,6 +106,14 @@
             
             return NoContent();
         }
-
+        public async Task<IActionResult> Info(DriveViewModel viewModel)
+        {
+           UserInfoViewModel model = await adminService.GetUserByEmailAsync(viewModel.Email);
+            return View("UserInfo", model);
+        }
+        public IActionResult UserInfo(UserInfoViewModel model)
+        {           
+            return View(model);
+        }
     }
 }

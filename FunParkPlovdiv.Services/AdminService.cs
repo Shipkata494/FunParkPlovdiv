@@ -41,10 +41,32 @@ namespace FunParkPlovdiv.Services
            return PasswordHash.ValidatePassword(model.Password, administrator.PasswordHash);
         }
 
-        public async Task UserDriveAsync(string email, DriveViewModel model)
+        public async Task<UserInfoViewModel> GetUserByEmailAsync(string email)
+        {
+            var result = new UserInfoViewModel();
+          var user = await dbContext.Users.Include(u=>u.Drives).Where(u => u.Email == email).FirstOrDefaultAsync();
+            foreach (var item in user!.Drives)
+            {
+                var drive = new DriveViewModel()
+                {
+                    Date = item.Date,
+                    Email = user.Email,
+                    Course = item.Courses
+                };
+                result.Drives.Add(drive);
+            }
+            result.Name = user.Name;
+            result.Email = email;
+            result.MiddleName = user.MiddleName;
+            result.LastName = user.LastName;
+            return  result;
+            
+        }
+
+        public async Task UserDriveAsync(DriveViewModel model)
         {
 
-                var user = await dbContext.Users.Where(u => u.Email == email).FirstAsync();
+                var user = await dbContext.Users.Where(u => u.Email == model.Email).FirstAsync();
             Drive drive = new Drive()
             {
                 Date = model.Date,

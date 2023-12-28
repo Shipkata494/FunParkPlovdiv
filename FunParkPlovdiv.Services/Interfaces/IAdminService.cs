@@ -6,7 +6,8 @@
     {
         Task<bool> AuthenticateUser(AdminServiceModel model);
         Task AddUserAsync(UserViewModel model);
-        Task UserDriveAsync(string email, DriveViewModel model);
+        Task UserDriveAsync(DriveViewModel model);
         Task<bool> UserExist(string email);
+        Task<UserInfoViewModel> GetUserByEmailAsync(string email);
     }
 }
