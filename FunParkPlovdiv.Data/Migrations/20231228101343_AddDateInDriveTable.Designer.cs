@@ -4,6 +4,7 @@ using FunParkPlovdiv.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FunParkPlovdiv.Data.Migrations
 {
     [DbContext(typeof(FunParkPlovdivDbContext))]
-    partial class FunParkPlovdivDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231228101343_AddDateInDriveTable")]
+    partial class AddDateInDriveTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,21 +96,21 @@ namespace FunParkPlovdiv.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1db856fe-ec7f-4a79-bede-7f42a0bab10a"),
+                            Id = new Guid("372361ca-eef4-4ebc-bacc-be7dfb0e0391"),
                             Description = "MiniCourse",
                             Title = "10 мин",
                             Value = 25m
                         },
                         new
                         {
-                            Id = new Guid("b1e3d403-7b40-4f0e-86ee-4b57558be3d5"),
+                            Id = new Guid("ef9dc987-075d-43ee-88de-243f701f758b"),
                             Description = "BigCourse",
                             Title = "15 мин",
                             Value = 35m
                         },
                         new
                         {
-                            Id = new Guid("3f20b6ec-0843-4249-95c3-3f9c0c866a09"),
+                            Id = new Guid("c4404eae-b97c-485f-89f4-c49b8ca2d94d"),
                             Description = "BirthDay",
                             Title = "1 час",
                             Value = 200m

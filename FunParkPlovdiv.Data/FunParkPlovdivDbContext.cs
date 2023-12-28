@@ -1,7 +1,7 @@
 ﻿namespace FunParkPlovdiv.Data
 {
     using FunParkPlovdiv.Data.Configuration;
-    using FunParkPlovdiv.Data.Data;
+    using FunParkPlovdiv.Data.Models;
     using Microsoft.Data.SqlClient;
     using Microsoft.EntityFrameworkCore;
     public class FunParkPlovdivDbContext : DbContext

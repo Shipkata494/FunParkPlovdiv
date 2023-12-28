@@ -1,5 +1,5 @@
 ﻿
-namespace FunParkPlovdiv.Data.Data
+namespace FunParkPlovdiv.Data.Models
 {
     using FunParkPlovdiv.Data.Enums;
     using System;
@@ -11,7 +11,7 @@ namespace FunParkPlovdiv.Data.Data
         public User()
         {
             Id = Guid.NewGuid();
-            RidesCount = 0;
+            Drives = new HashSet<Drive>();
         }
         public Guid Id { get; set; }
         [MaxLength(UserNameMaxLenght)]
@@ -20,10 +20,9 @@ namespace FunParkPlovdiv.Data.Data
         public string MiddleName { get; set; } = null!;
         [MaxLength(UserLastNameMaxLenght)]
         public string LastName { get; set; } = null!;
-        [EmailAddress]
         public string Email { get; set; } = null!;
-        public Course Course { get; set; }
-        public int RidesCount { get; set; }
+        public ICollection<Drive> Drives { get; set; }
+
 
     }
 }

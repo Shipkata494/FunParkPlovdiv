@@ -1,4 +1,5 @@
-﻿@{
+﻿@using static FunParkPlovdiv.Common.GeneralApplicationConstants.Admin;
+@{
     ViewData["Title"] = "Home";
 }
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:transparent !important;">
@@ -9,8 +10,8 @@
                     <ul class="navbar-nav ml-auto" style="background-color:transparent;">
                         <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="Price" asp-action="Index">Цени</a></li>
                         <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="Image" asp-action="Index">Галерия</a></li>
-                        <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="Home" asp-action="Ranking">Рожденни&nbsp;дни</a></li>
-                        <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="Home" asp-action="Ranking">За&nbsp;нас</a></li>
+                        <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="BirthDay" asp-action="Index">Рожденни&nbsp;дни</a></li>
+                        <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="Home" asp-action="Ranking">За&nbsp;нас</a></li>                        
                     </ul>
                 </div>
             </div>
@@ -18,7 +19,16 @@
     </div>
 </nav>
 <div>
-    <img src="~/Images/FunParkPlovdiv.png" class="img-fluid img-home" alt="Your Image">
+    @if (User.IsInRole(AdminRoleName))
+    {
+      <ul class="navbar-nav ml-auto" style="background-color:transparent; text-align:center">
+        <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="Admin" asp-action="AddUser">Нов</a></li>
+        <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="Admin" asp-action="UserDrive">Каране</a></li>
+      </ul>
+    }else{
+        <img src="~/Images/FunParkPlovdiv.png" class="img-fluid img-home" alt="Your Image">
+    }
+    
 </div>
 
 

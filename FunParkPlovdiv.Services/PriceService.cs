@@ -1,7 +1,7 @@
 ﻿namespace FunParkPlovdiv.Services
 {
     using FunParkPlovdiv.Data;
-    using FunParkPlovdiv.Data.Data;
+    using FunParkPlovdiv.Data.Models;
     using FunParkPlovdiv.Services.Interfaces;
     using FunParkPlovdiv.ViewModels.Price;
     using Microsoft.EntityFrameworkCore;

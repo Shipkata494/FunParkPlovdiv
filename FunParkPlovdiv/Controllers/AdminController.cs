@@ -8,6 +8,7 @@
 
     using FunParkPlovdiv.Services.Interfaces;
     using FunParkPlovdiv.Services.ServiceModels;
+    using FunParkPlovdiv.ViewModels.User;
 
     public class AdminController : Controller
     {
@@ -26,8 +27,6 @@
         {
             if (ModelState.IsValid)
             {
-               
-
                 var IsUserAuthenticate = await adminService.AuthenticateUser(model);
 
                 if (!IsUserAuthenticate)
@@ -62,5 +61,51 @@
             }
             return RedirectToAction("Index", "Home");
         }
+        public IActionResult AddUser()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddUser(UserViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                if (await adminService.UserExist(model.Email))
+                {
+                    return RedirectToAction("UserDrive", "Admin");
+                }
+                else
+                {
+                    await adminService.AddUserAsync(model);
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return NoContent();
+          
+        }
+        public IActionResult UserDrive() 
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> UserDrive(string email, DriveViewModel model)
+        {
+            if (ModelState.IsValid) 
+            {
+                if (await adminService.UserExist(email))
+                {
+                    await adminService.UserDriveAsync(email,model);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    return RedirectToAction("AddUser", "Admin");
+                }
+            }
+            
+            return NoContent();
+        }
+
     }
 }

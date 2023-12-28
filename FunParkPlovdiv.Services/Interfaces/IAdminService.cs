@@ -1,14 +1,12 @@
-﻿using FunParkPlovdiv.Services.ServiceModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FunParkPlovdiv.Services.Interfaces
+﻿namespace FunParkPlovdiv.Services.Interfaces
 {
+    using FunParkPlovdiv.Services.ServiceModels;
+    using FunParkPlovdiv.ViewModels.User;
     public interface IAdminService
     {
         Task<bool> AuthenticateUser(AdminServiceModel model);
+        Task AddUserAsync(UserViewModel model);
+        Task UserDriveAsync(string email, DriveViewModel model);
+        Task<bool> UserExist(string email);
     }
 }

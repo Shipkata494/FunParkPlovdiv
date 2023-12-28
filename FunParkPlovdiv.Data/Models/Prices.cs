@@ -1,4 +1,4 @@
-﻿namespace FunParkPlovdiv.Data.Data
+﻿namespace FunParkPlovdiv.Data.Models
 {
     using System.ComponentModel.DataAnnotations;
     using static FunParkPlovdiv.Common.EntityValidationConstants.Price;

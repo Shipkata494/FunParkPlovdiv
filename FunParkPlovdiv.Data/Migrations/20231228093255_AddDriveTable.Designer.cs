@@ -4,6 +4,7 @@ using FunParkPlovdiv.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FunParkPlovdiv.Data.Migrations
 {
     [DbContext(typeof(FunParkPlovdivDbContext))]
-    partial class FunParkPlovdivDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231228093255_AddDriveTable")]
+    partial class AddDriveTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,9 +57,6 @@ namespace FunParkPlovdiv.Data.Migrations
                     b.Property<int>("Courses")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
                     b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
@@ -93,21 +93,21 @@ namespace FunParkPlovdiv.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("1db856fe-ec7f-4a79-bede-7f42a0bab10a"),
+                            Id = new Guid("e9546273-749d-4113-bc01-62ba54b12d00"),
                             Description = "MiniCourse",
                             Title = "10 мин",
                             Value = 25m
                         },
                         new
                         {
-                            Id = new Guid("b1e3d403-7b40-4f0e-86ee-4b57558be3d5"),
+                            Id = new Guid("a6d2f475-9e77-4c5b-96d1-e7071ea0d6fa"),
                             Description = "BigCourse",
                             Title = "15 мин",
                             Value = 35m
                         },
                         new
                         {
-                            Id = new Guid("3f20b6ec-0843-4249-95c3-3f9c0c866a09"),
+                            Id = new Guid("60259d98-357e-4142-a3b6-090b803b8624"),
                             Description = "BirthDay",
                             Title = "1 час",
                             Value = 200m

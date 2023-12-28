@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FunParkPlovdiv.Data.Data
+namespace FunParkPlovdiv.Data.Models
 {
     public class Administrator
     {

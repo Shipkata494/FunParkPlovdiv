@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FunParkPlovdiv.Data.Data;
+using FunParkPlovdiv.Data.Models;
 
 namespace FunParkPlovdiv.Data.Configuration
 {

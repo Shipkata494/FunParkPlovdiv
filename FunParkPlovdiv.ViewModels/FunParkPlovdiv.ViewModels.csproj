@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FunParkPlovdiv.Data\FunParkPlovdiv.Data.csproj" />
+    <ProjectReference Include="..\FunParkPlovdov.Common\FunParkPlovdiv.Common.csproj" />
+  </ItemGroup>
+
 </Project>
