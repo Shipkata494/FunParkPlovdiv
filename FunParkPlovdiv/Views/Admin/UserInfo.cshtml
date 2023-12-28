@@ -1,4 +1,7 @@
-﻿@model FunParkPlovdiv.ViewModels.User.UserInfoViewModel
+﻿@{
+    ViewData["Title"] = "UserInfo";
+}
+@model UserInfoViewModel
 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">Имена - @Model.Name @Model.MiddleName @Model.LastName</h5>
