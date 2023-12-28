@@ -2,8 +2,7 @@
 smallEditBtn.addEventListener("click", EditSmallCourse);
 const BigEditBtn = document.getElementById("big-course");
 BigEditBtn.addEventListener("click", EditBigCourse);
-const uploadImageBtn = document.getElementById("uploadImages");
-uploadImageBtn.addEventListener("click", uploadImage);
+
 function EditSmallCourse() {
 
 
@@ -122,9 +121,29 @@ function uploadImage() {
             return response.json();
         })
         .then(data => {
-            console.log(data);         
+            console.log(data);        
+            window.alert("Added");
+            location.reload();
         })
         .catch(error => {
             console.error('There was a problem with the fetch operation:', error);
         });
+
 }
+function deleteImages(imageName) {
+
+    fetch('/Image/Delete?imageName=' + encodeURIComponent(imageName), {
+        method: 'POST',
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            window.alert("Deleted");
+            location.reload();
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
+   
+}
+

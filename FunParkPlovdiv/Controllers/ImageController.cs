@@ -6,9 +6,11 @@
     public class ImageController : Controller
     {
        private readonly IImageService imageService;
-        public ImageController(IImageService _imageService)
+       private readonly IWebHostEnvironment environment;
+        public ImageController(IImageService _imageService,IWebHostEnvironment _environment)
         {
             imageService = _imageService;
+            environment = _environment;
         }
         public IActionResult Index() 
         {
@@ -33,6 +35,27 @@
             }
 
             return Json(new { success = false, message = "No file received" });
+        }
+        public IActionResult Delete(string imageName)
+        {
+            try
+            {
+                var uploadsFolder = Path.Combine(environment.WebRootPath, "Content", "Images");
+                var imagePath = Path.Combine(uploadsFolder, imageName);               
+                if (System.IO.File.Exists(imagePath))
+                {
+                    System.IO.File.Delete(imagePath);
+                    return Json(new { success = true, message = "Image deleted successfully" });
+                }
+                else
+                {
+                    return Json(new { success = false, message = "Image not found" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Error deleting image: {ex.Message}" });
+            }
         }
     }
 }

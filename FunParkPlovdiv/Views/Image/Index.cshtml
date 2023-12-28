@@ -3,16 +3,19 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+@{
+    var path = Model[0].AltText + ".jpg";
+}
 @if (User.IsInRole(AdminRoleName))
-{
+{   
     <div class="form-group">
-    <form enctype="multipart/form-data" method="post" id="uploadForm">
-        <div class="form-group">
-            <label for="imageFile"></label>
-            <input type="file" name="imageFile" id="imageFile" accept="image/*" />
-        </div>
-        <button type="button" onclick="uploadImage()">Upload Image</button>
-    </form>
+        <form enctype="multipart/form-data" method="post" id="uploadForm">
+            <div class="form-group">
+                <label for="imageFile"></label>
+                <input type="file" name="imageFile" id="imageFile" accept="image/*" />
+            </div>
+            <button type="button" onclick="uploadImage()">Upload Image</button>            
+        </form>      
     </div>
 }
  @if (Model.Count > 0)
@@ -20,17 +23,24 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel" height="300px" width="300">
     <ul class="carousel-indicators">
         @for (int i = 0; i < Model.Count; i++)
-        {
-            <li data-target="#myCarousel" data-slide-to="@i" class="@(i == 0 ? "active" : "")"></li>
-        }
+        { 
+            <li data-target="#myCarousel" data-slide-to="@i" class="@(i == 0 ? "active" : "")"></li>              
+        }          
     </ul>
-
+        
     <div class="carousel-inner">
             @for (int i = 0; i < Model.Count; i++)
-        {
+        {          
+            
             <div class="carousel-item @(i == 0 ? "active" : "")">
-                    <img class="d-block w-100 uploaded-image" src="@Model[i].FilePath" alt="@Model[i].AltText">
-            </div>
+                    @if (User.IsInRole(AdminRoleName))
+                    {
+                        <form method="post" style="text-align:center">
+                            <button type="button" class="btn btn-danger" onclick="deleteImages('@Model[i].AltText' + '.jpg')">Delete Image</button>
+                        </form>
+                    }                  
+                <img class="d-block w-100 uploaded-image" src="@Model[i].FilePath" alt="@Model[i].AltText">                  
+            </div>            
         }
     </div>
     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -47,3 +57,4 @@
     {
 <p>No images found.</p>
     }
+
