@@ -15,7 +15,9 @@
         [StringLength(UserLastNameMaxLenght, MinimumLength = UserLastNameMinLenght)]
         public string LastName { get; set; } = null!;
         [EmailAddress]
-        public string Email { get; set; } = null!;
+        public string? Email { get; set; }
+        [StringLength(UserPhoneMaxLenght, MinimumLength = UserPhoneMinLenght)]
+        public string Phone { get; set; } = null!;
         public ICollection<DriveViewModel> Drives { get; }
     }
 }

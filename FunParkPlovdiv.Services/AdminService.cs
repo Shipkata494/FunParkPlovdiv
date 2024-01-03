@@ -1,18 +1,12 @@
 ﻿using FunParkPlovdiv.Common;
 using FunParkPlovdiv.Data;
 using FunParkPlovdiv.Data.Models;
-using FunParkPlovdiv.Services.Interfaces;
-using FunParkPlovdiv.Services.ServiceModels;
-using FunParkPlovdiv.ViewModels.User;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace FunParkPlovdiv.Services
 {
+    using FunParkPlovdiv.Services.Interfaces;
+    using FunParkPlovdiv.Services.ServiceModels;
+    using FunParkPlovdiv.ViewModels.User;
+    using Microsoft.EntityFrameworkCore;
     public class AdminService : IAdminService
     {
         private readonly FunParkPlovdivDbContext dbContext;
@@ -30,6 +24,7 @@ namespace FunParkPlovdiv.Services
                 Email = model.Email,
                 LastName = model.LastName,
                 MiddleName = model.MiddleName,
+                PhoneNumber = model.Phone
             };
            await dbContext.Users.AddAsync(user);
            await dbContext.SaveChangesAsync();
@@ -41,22 +36,22 @@ namespace FunParkPlovdiv.Services
            return PasswordHash.ValidatePassword(model.Password, administrator.PasswordHash);
         }
 
-        public async Task<UserInfoViewModel> GetUserByEmailAsync(string email)
+        public async Task<UserInfoViewModel> GetUserByPhoneNumberAsync(string phoneNumber)
         {
             var result = new UserInfoViewModel();
-          var user = await dbContext.Users.Include(u=>u.Drives).Where(u => u.Email == email).FirstOrDefaultAsync();
+          var user = await dbContext.Users.Include(u=>u.Drives).Where(u => u.PhoneNumber == phoneNumber).FirstOrDefaultAsync();
             foreach (var item in user!.Drives)
             {
                 var drive = new DriveViewModel()
                 {
                     Date = item.Date,
-                    Email = user.Email,
+                    Phone = user.PhoneNumber,
                     Course = item.Courses
                 };
                 result.Drives.Add(drive);
             }
             result.Name = user.Name;
-            result.Email = email;
+            result.Phone = phoneNumber;
             result.MiddleName = user.MiddleName;
             result.LastName = user.LastName;
             return  result;
@@ -66,7 +61,7 @@ namespace FunParkPlovdiv.Services
         public async Task UserDriveAsync(DriveViewModel model)
         {
 
-                var user = await dbContext.Users.Where(u => u.Email == model.Email).FirstAsync();
+                var user = await dbContext.Users.Where(u => u.PhoneNumber == model.Phone).FirstAsync();
             Drive drive = new Drive()
             {
                 Date = model.Date,
@@ -76,9 +71,9 @@ namespace FunParkPlovdiv.Services
             await dbContext.SaveChangesAsync();          
         }
 
-        public async Task<bool> UserExist(string email)
+        public async Task<bool> UserExist(string phoneNumber)
         {
-            var user = await dbContext.Users.Where(u => u.Email == email).FirstOrDefaultAsync();
+            var user = await dbContext.Users.Where(u => u.PhoneNumber == phoneNumber).FirstOrDefaultAsync();
             if (user == null)
             {
                 return false;

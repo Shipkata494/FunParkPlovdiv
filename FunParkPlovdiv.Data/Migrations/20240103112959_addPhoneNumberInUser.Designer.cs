@@ -4,6 +4,7 @@ using FunParkPlovdiv.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FunParkPlovdiv.Data.Migrations
 {
     [DbContext(typeof(FunParkPlovdivDbContext))]
-    partial class FunParkPlovdivDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240103112959_addPhoneNumberInUser")]
+    partial class addPhoneNumberInUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,21 +96,21 @@ namespace FunParkPlovdiv.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("fd6aa988-cf6b-44cf-9551-6536a96c92d0"),
+                            Id = new Guid("078e5a93-717e-4471-9bde-5762c26e42f9"),
                             Description = "MiniCourse",
                             Title = "10 мин",
                             Value = 25m
                         },
                         new
                         {
-                            Id = new Guid("21bc81e9-7d81-47a6-84e5-a7f468e1f7e7"),
+                            Id = new Guid("bd92d5b6-a477-4c96-8e89-da28cf5b3126"),
                             Description = "BigCourse",
                             Title = "15 мин",
                             Value = 35m
                         },
                         new
                         {
-                            Id = new Guid("5564179a-3517-41c4-abfb-2ffb5bf04319"),
+                            Id = new Guid("f4b7927c-9c1d-41af-ac38-1a2c489db3df"),
                             Description = "BirthDay",
                             Title = "1 час",
                             Value = 200m
@@ -140,8 +143,7 @@ namespace FunParkPlovdiv.Data.Migrations
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

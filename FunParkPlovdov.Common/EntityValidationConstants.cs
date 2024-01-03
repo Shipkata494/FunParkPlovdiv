@@ -22,6 +22,8 @@ namespace FunParkPlovdiv.Common
             public const int UserMiddleNameMinLenght = 1;
             public const int UserLastNameMaxLenght = 50;
             public const int UserLastNameMinLenght = 1;
+            public const int UserPhoneMaxLenght = 15;
+            public const int UserPhoneMinLenght = 10;
         }
     }
 }

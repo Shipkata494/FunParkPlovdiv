@@ -68,10 +68,8 @@
         [HttpPost]
         public async Task<IActionResult> AddUser(UserViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-
-                if (await adminService.UserExist(model.Email))
+          
+                if (await adminService.UserExist(model.Phone))
                 {
                     return RedirectToAction("UserDrive", "Admin");
                 }
@@ -80,9 +78,7 @@
                     await adminService.AddUserAsync(model);
                     return RedirectToAction("Index", "Home");
                 }
-            }
-            return NoContent();
-          
+                      
         }
         public IActionResult UserDrive() 
         {
@@ -90,10 +86,8 @@
         }
         [HttpPost]
         public async Task<IActionResult> UserDrive(DriveViewModel model)
-        {
-            if (ModelState.IsValid) 
-            {
-                if (await adminService.UserExist(model.Email))
+        {         
+                if (await adminService.UserExist(model.Phone))
                 {
                     await adminService.UserDriveAsync(model);
                     return RedirectToAction("Info", model);
@@ -102,13 +96,12 @@
                 {
                     return RedirectToAction("AddUser", "Admin");
                 }
-            }
             
-            return NoContent();
+                      
         }
         public async Task<IActionResult> Info(DriveViewModel viewModel)
         {
-           UserInfoViewModel model = await adminService.GetUserByEmailAsync(viewModel.Email);
+           UserInfoViewModel model = await adminService.GetUserByPhoneNumberAsync(viewModel.Phone);
             return View("UserInfo", model);
         }
         public IActionResult UserInfo(UserInfoViewModel model)

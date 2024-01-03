@@ -1,9 +1,4 @@
-﻿@using static FunParkPlovdiv.Common.GeneralApplicationConstants.Admin;
-@{
-    ViewData["Title"] = "Home";
-}
-@* <partial name="_HomeMenuPartial" /> *@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:transparent !important;">
+﻿<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:transparent !important;">
     <div class="container" style="background-color:transparent !important;">
         <div class="row" style="background-color:transparent !important;">
             <div class="col-md-6" style="background-color:transparent !important;">
@@ -20,19 +15,3 @@
         </div>
     </div>
 </nav>
-<div>
-    @if (User.IsInRole(AdminRoleName))
-    {
-      <ul class="navbar-nav ml-auto" style="background-color:transparent; text-align:center">
-        <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="Admin" asp-action="AddUser">Нов</a></li>
-        <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="Admin" asp-action="UserDrive">Каране</a></li>
-      </ul>
-    }else{
-        <img src="~/Images/FunParkPlovdiv.png" class="img-fluid img-home" alt="Your Image">
-    }
-    
-</div>
-
-
-
-

@@ -1,11 +1,12 @@
 ﻿@{
     ViewData["Title"] = "UserInfo";
+   
 }
 @model UserInfoViewModel
 <div class="card" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">Имена - @Model.Name @Model.MiddleName @Model.LastName</h5>
-        <h5 class="card-title">Email - @Model.Email</h5>
+        <h5 class="card-title">Имена - @Model.Name @Model.MiddleName @Model.LastName</h5>       
+        <h5 class="card-title">Телефон - @Model.Phone</h5>
         <h5 class="card-title">Карал - @Model.Drives.Count пъти</h5>
         <a asp-controller="Home" asp-action="Index" class="card-link btn btn-danger">Home</a>
     </div>

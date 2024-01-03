@@ -4,6 +4,7 @@ using FunParkPlovdiv.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FunParkPlovdiv.Data.Migrations
 {
     [DbContext(typeof(FunParkPlovdivDbContext))]
-    partial class FunParkPlovdivDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240103113207_UpdatePhoneNumberMaxLenght")]
+    partial class UpdatePhoneNumberMaxLenght
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

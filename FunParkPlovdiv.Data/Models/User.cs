@@ -20,8 +20,11 @@ namespace FunParkPlovdiv.Data.Models
         public string MiddleName { get; set; } = null!;
         [MaxLength(UserLastNameMaxLenght)]
         public string LastName { get; set; } = null!;
-        public string Email { get; set; } = null!;
+        public string? Email { get; set; }
+        [MaxLength(UserPhoneMaxLenght)]
+        public string PhoneNumber { get; set; } = null!;
         public ICollection<Drive> Drives { get; set; }
+
 
 
     }
