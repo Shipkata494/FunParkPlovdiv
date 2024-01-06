@@ -137,6 +137,7 @@ function deleteImages(imageName) {
     })
         .then(response => response.json())
         .then(data => {
+            console.log(imageName);
             console.log(data);
             window.alert("Deleted");
             location.reload();
