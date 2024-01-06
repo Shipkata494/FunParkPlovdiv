@@ -2,24 +2,7 @@
 @{
     ViewData["Title"] = "Home";
 }
-@* <partial name="_HomeMenuPartial" /> *@
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color:transparent !important;">
-    <div class="container" style="background-color:transparent !important;">
-        <div class="row" style="background-color:transparent !important;">
-            <div class="col-md-6" style="background-color:transparent !important;">
-                <div class="navbar-collapse" id="navbarNav" style="background-color:transparent;">
-                    <ul class="navbar-nav ml-auto" style="background-color:transparent;">
-                        <li class="nav-item"><a class="btn-custom btn-menu" asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                        <li class="nav-item"><a class="btn-custom btn-menu" asp-area="" asp-controller="Price" asp-action="Index">Цени</a></li>
-                        <li class="nav-item"><a class="btn-custom btn-menu" asp-area="" asp-controller="Image" asp-action="Index">Галерия</a></li>
-                        <li class="nav-item"><a class="btn-custom btn-menu" asp-area="" asp-controller="BirthDay" asp-action="Index">Рожденни&nbsp;дни</a></li>
-                        <li class="nav-item"><a class="btn-custom btn-menu" asp-area="" asp-controller="Home" asp-action="Ranking">За&nbsp;нас</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
+<partial name="_HomeMenuPartial" /> 
 <div>
     @if (User.IsInRole(AdminRoleName))
     {

@@ -111,10 +111,14 @@ body {
     color: #fff;
     background-color: #990000;
     border-color: #990000;
-    padding: 20px 100px;
+    padding: 1em 6em;
 }
     .btn-menu:hover {
         color: #fff;
         background-color: #bb2d3b;
         border-color: #b02a37;
     }
+.custom-height {
+    height: 700px; 
+    object-fit: cover;
+}
