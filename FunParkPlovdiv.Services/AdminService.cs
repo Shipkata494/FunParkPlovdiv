@@ -1,12 +1,14 @@
-﻿using FunParkPlovdiv.Common;
-using FunParkPlovdiv.Data;
-using FunParkPlovdiv.Data.Models;
-namespace FunParkPlovdiv.Services
+﻿namespace FunParkPlovdiv.Services
 {
+    using Microsoft.EntityFrameworkCore;
+
+    using FunParkPlovdiv.Common;
+    using FunParkPlovdiv.Data;
+    using FunParkPlovdiv.Data.Models;
     using FunParkPlovdiv.Services.Interfaces;
     using FunParkPlovdiv.Services.ServiceModels;
     using FunParkPlovdiv.ViewModels.User;
-    using Microsoft.EntityFrameworkCore;
+
     public class AdminService : IAdminService
     {
         private readonly FunParkPlovdivDbContext dbContext;
@@ -26,6 +28,7 @@ namespace FunParkPlovdiv.Services
                 MiddleName = model.MiddleName,
                 PhoneNumber = model.Phone
             };
+            
            await dbContext.Users.AddAsync(user);
            await dbContext.SaveChangesAsync();
         }
@@ -34,6 +37,7 @@ namespace FunParkPlovdiv.Services
         {
             var administrator = await dbContext.Administrator.Where(a=>a.Username == model.Username).FirstAsync();
            return PasswordHash.ValidatePassword(model.Password, administrator.PasswordHash);
+
         }
 
         public async Task<UserInfoViewModel> GetUserByPhoneNumberAsync(string phoneNumber)

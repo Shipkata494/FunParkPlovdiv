@@ -1,11 +1,12 @@
 ﻿namespace FunParkPlovdiv.Services
 {
+    using System.Threading.Tasks;
+
+    using Microsoft.EntityFrameworkCore;
+
     using FunParkPlovdiv.Data;
-    using FunParkPlovdiv.Data.Models;
     using FunParkPlovdiv.Services.Interfaces;
     using FunParkPlovdiv.ViewModels.Price;
-    using Microsoft.EntityFrameworkCore;
-    using System.Threading.Tasks;
 
     public class PriceService : IPriceService
     {

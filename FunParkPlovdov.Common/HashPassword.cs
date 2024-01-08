@@ -9,7 +9,7 @@ namespace FunParkPlovdiv.Common
 {
     public class PasswordHash
     {
-        // The following constants may be changed without breaking existing hashes.
+       
         public const int SALT_BYTE_SIZE = 24;
         public const int HASH_BYTE_SIZE = 24;
         public const int PBKDF2_ITERATIONS = 1000;
@@ -18,24 +18,6 @@ namespace FunParkPlovdiv.Common
         public const int SALT_INDEX = 1;
         public const int PBKDF2_INDEX = 2;
 
-        /// <summary>
-        /// Creates a salted PBKDF2 hash of the password.
-        /// </summary>
-        /// <param name="password">The password to hash.</param>
-        /// <returns>The hash of the password.</returns>
-        public static string CreateHash(string password)
-        {
-            // Generate a random salt
-            RNGCryptoServiceProvider csprng = new RNGCryptoServiceProvider();
-            byte[] salt = new byte[SALT_BYTE_SIZE];
-            csprng.GetBytes(salt);
-
-            // Hash the password and encode the parameters
-            byte[] hash = PBKDF2(password, salt, PBKDF2_ITERATIONS, HASH_BYTE_SIZE);
-            return PBKDF2_ITERATIONS + ":" +
-                Convert.ToBase64String(salt) + ":" +
-                Convert.ToBase64String(hash);
-        }
 
         /// <summary>
         /// Validates a password given a hash of the correct one.
@@ -45,7 +27,6 @@ namespace FunParkPlovdiv.Common
         /// <returns>True if the password is correct. False otherwise.</returns>
         public static bool ValidatePassword(string password, string correctHash)
         {
-            // Extract the parameters from the hash
             char[] delimiter = { ':' };
             string[] split = correctHash.Split(delimiter);
             int iterations = Int32.Parse(split[ITERATION_INDEX]);

@@ -1,7 +1,7 @@
-﻿using FunParkPlovdiv.Services.Interfaces;
-using FunParkPlovdiv.Services.ServiceModels;
-namespace FunParkPlovdiv.Services
+﻿namespace FunParkPlovdiv.Services
 {
+    using FunParkPlovdiv.Services.Interfaces;
+    using FunParkPlovdiv.Services.ServiceModels;
     public class ImageService : IImageService
     {
 

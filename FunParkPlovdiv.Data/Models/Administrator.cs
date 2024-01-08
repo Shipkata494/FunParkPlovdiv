@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FunParkPlovdiv.Data.Models
+﻿namespace FunParkPlovdiv.Data.Models
 {
+using System.ComponentModel.DataAnnotations;
     public class Administrator
     {
         [Key]
@@ -15,5 +9,6 @@ namespace FunParkPlovdiv.Data.Models
         public string Username { get; set; } = null!;
         [Required]
         public string PasswordHash { get; set; } = null!;
+    
     }
 }

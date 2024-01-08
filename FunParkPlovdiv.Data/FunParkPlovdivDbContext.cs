@@ -15,8 +15,12 @@
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Prices>(p => p.Property(x => x.Value).HasPrecision(8, 2));
+            builder.Entity<Prices>(p => p.Property(x => x.Value)
+                .HasPrecision(8, 2));
             builder.ApplyConfiguration(new PriceEntityConfiguration());
+            builder.Entity<User>()
+                .HasIndex(x => x.PhoneNumber)
+                .IsUnique();
             base.OnModelCreating(builder);
         }
     }
