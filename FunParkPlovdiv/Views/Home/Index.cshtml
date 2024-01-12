@@ -3,15 +3,15 @@
     ViewData["Title"] = "Home";
 }
 <partial name="_HomeMenuPartial" /> 
-<div>
+<div style="padding-left:6em">
     @if (User.IsInRole(AdminRoleName))
     {
       <ul class="navbar-nav ml-auto" style="background-color:transparent; text-align:center">
-        <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="Admin" asp-action="AddUser">Нов</a></li>
-        <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="Admin" asp-action="UserDrive">Каране</a></li>
+        <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="Admin" asp-action="AddUser">Нов потребител</a></li>
+        <li class="nav-item"><a class="btn btn-danger btn-lg btn-block" style="padding: 20px 120px;" asp-area="" asp-controller="Admin" asp-action="UserDrive">Избор за курс на потребител</a></li>
       </ul>
     }else{
-        <img src="~/Images/FunParkPlovdiv.png" class="img-fluid img-home" style="padding-left:6em" alt="Your Image">
+        <img src="~/Images/FunParkPlovdiv.png" class="img-fluid img-home" alt="Your Image">
     }
     
 </div>

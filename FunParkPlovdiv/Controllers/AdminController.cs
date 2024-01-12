@@ -9,7 +9,8 @@
     using FunParkPlovdiv.Services.Interfaces;
     using FunParkPlovdiv.Services.ServiceModels;
     using FunParkPlovdiv.ViewModels.User;
-
+    using Microsoft.AspNetCore.Authorization;
+   [Authorize]
     public class AdminController : Controller
     {
         private readonly IAdminService adminService;
@@ -17,12 +18,14 @@
         {
             adminService = _adminService;
         }
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Index(AdminServiceModel model)
         {
             if (ModelState.IsValid)
@@ -80,6 +83,7 @@
                 }
                       
         }
+
         public IActionResult UserDrive() 
         {
             return View();
