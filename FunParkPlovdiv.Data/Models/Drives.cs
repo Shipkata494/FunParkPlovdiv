@@ -16,6 +16,7 @@ namespace FunParkPlovdiv.Data.Models
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public Course Courses { get; set; }
+        public User User { get; set; }
 
     }
 }

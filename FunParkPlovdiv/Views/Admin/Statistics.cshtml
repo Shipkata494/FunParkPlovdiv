@@ -1,0 +1,38 @@
+﻿@model ICollection<UserStatisticsViewModel>
+@{
+
+}
+<form method="get">
+    <div class="row">
+        <div class="form-group">
+            <label for="date" class="control-label col-md-2"></label>
+            <div class="col-md-10">
+                <input type ="date" for="date" name="date" class="form-control" />
+                <span for="Day" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group mt-4 p-2">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+</form>
+@if (Model.Any())
+{
+    @foreach (var item in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Име - @item.Name</h5>
+                <h5 class="card-title">Карал - @item.NumberOfDrives</h5>
+            </div>
+        </div>
+    }
+    <a asp-controller="Home" asp-action="Index" class="card-link btn btn-danger">Home</a>
+}
+else
+{
+    <h1 style="color:white">Никой не е карал на тази дата</h1>
+}
+

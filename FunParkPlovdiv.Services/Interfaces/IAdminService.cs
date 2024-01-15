@@ -9,5 +9,6 @@
         Task UserDriveAsync(DriveViewModel model);
         Task<bool> UserExist(string phoneNumber);
         Task<UserInfoViewModel> GetUserByPhoneNumberAsync(string phoneNumber);
+        Task<ICollection<UserStatisticsViewModel>> GetUserStatisticsAsync(DateTime date);
     }
 }

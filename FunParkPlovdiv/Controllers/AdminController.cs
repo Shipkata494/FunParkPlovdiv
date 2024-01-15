@@ -112,5 +112,10 @@
         {           
             return View(model);
         }
+        public async Task<IActionResult> Statistics([FromQuery] DateTime date)
+        {
+           var model = await adminService.GetUserStatisticsAsync(date);
+           return View(model);
+        }
     }
 }

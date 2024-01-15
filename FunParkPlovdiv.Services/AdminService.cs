@@ -8,6 +8,8 @@
     using FunParkPlovdiv.Services.Interfaces;
     using FunParkPlovdiv.Services.ServiceModels;
     using FunParkPlovdiv.ViewModels.User;
+    using System.Collections.Generic;
+    using System;
 
     public class AdminService : IAdminService
     {
@@ -60,6 +62,26 @@
             result.LastName = user.LastName;
             return  result;
             
+        }
+
+        public async Task<ICollection<UserStatisticsViewModel>> GetUserStatisticsAsync(DateTime date)
+        {
+            if (date == DateTime.MinValue)
+            {
+                date = DateTime.Now;
+            }
+
+           var users = await dbContext.Users
+                .SelectMany(u => u.Drives.Where(d => d.Date.DayOfYear == date.DayOfYear))
+                .Select(u => new UserStatisticsViewModel()
+                {
+                    Name = u.User.Name + " " + u.User.MiddleName + " " + u.User.LastName,
+                    NumberOfDrives = u.User.Drives.Count(d => d.Date.Day == date.Day)
+                })
+                .ToListAsync();
+            return users.DistinctBy(u => u.Name).ToList();
+        
+
         }
 
         public async Task UserDriveAsync(DriveViewModel model)
